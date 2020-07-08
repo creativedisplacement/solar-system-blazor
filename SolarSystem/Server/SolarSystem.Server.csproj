@@ -5,11 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="MediatR" Version="8.0.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\SolarSystem.Application.csproj" />
     <ProjectReference Include="..\Client\SolarSystem.Client.csproj" />
+    <ProjectReference Include="..\Persistence\SolarSystem.Persistence.csproj" />
     <ProjectReference Include="..\Shared\SolarSystem.Shared.csproj" />
   </ItemGroup>
 

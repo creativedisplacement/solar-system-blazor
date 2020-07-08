@@ -9,6 +9,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Client", "Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Shared", "Shared\SolarSystem.Shared.csproj", "{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Persistence", "Persistence\SolarSystem.Persistence.csproj", "{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Domain", "Domain\SolarSystem.Domain.csproj", "{D8FDFDC3-BC14-4718-AD6C-E534CED8D2D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Common", "Common\SolarSystem.Common.csproj", "{AAE82419-9D9F-4050-9A56-DFF391269CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Application", "Application\SolarSystem.Application.csproj", "{E4E8AD0A-6993-4F75-B8E0-31D849EC0234}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B54C6260-116E-4D26-A93C-213392AE50E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Application.Tests", "Application.Tests\SolarSystem.Application.Tests.csproj", "{968203BF-44CB-4126-9918-7C686044CEC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Domain.Tests", "Domain.Tests\SolarSystem.Domain.Tests.csproj", "{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +41,39 @@ Global
 		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8FDFDC3-BC14-4718-AD6C-E534CED8D2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8FDFDC3-BC14-4718-AD6C-E534CED8D2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8FDFDC3-BC14-4718-AD6C-E534CED8D2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8FDFDC3-BC14-4718-AD6C-E534CED8D2D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE82419-9D9F-4050-9A56-DFF391269CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE82419-9D9F-4050-9A56-DFF391269CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE82419-9D9F-4050-9A56-DFF391269CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE82419-9D9F-4050-9A56-DFF391269CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E8AD0A-6993-4F75-B8E0-31D849EC0234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E8AD0A-6993-4F75-B8E0-31D849EC0234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E8AD0A-6993-4F75-B8E0-31D849EC0234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E8AD0A-6993-4F75-B8E0-31D849EC0234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{968203BF-44CB-4126-9918-7C686044CEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{968203BF-44CB-4126-9918-7C686044CEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{968203BF-44CB-4126-9918-7C686044CEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{968203BF-44CB-4126-9918-7C686044CEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00A3C2CF-C9EB-48BB-9757-4B87B1595693}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{968203BF-44CB-4126-9918-7C686044CEC2} = {B54C6260-116E-4D26-A93C-213392AE50E6}
+		{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B} = {B54C6260-116E-4D26-A93C-213392AE50E6}
 	EndGlobalSection
 EndGlobal
