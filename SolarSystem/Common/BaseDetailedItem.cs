@@ -1,6 +1,6 @@
 ﻿namespace SolarSystem.Common
 {
-    public abstract class BaseDetailedItem : BaseItem
+    public abstract class BaseDetailedItem : BaseBasicItem
     {
         public string Description { get; set; }
         public double Density { get; set; }

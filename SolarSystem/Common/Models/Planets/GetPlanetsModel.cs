@@ -7,7 +7,7 @@ namespace SolarSystem.Common.Models.Planets
         public IEnumerable<GetPlanetModel> Planets { get; set; }
     }
     
-    public class GetPlanetModel : BaseItem
+    public class GetPlanetModel : BaseBasicItem
     {
         
     }

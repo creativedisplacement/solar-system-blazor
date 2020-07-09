@@ -4,7 +4,7 @@ using SolarSystem.Common.Models.Planets;
 
 namespace SolarSystem.Application.Planets
 {
-    public class GetPlanetsQuery : BaseItem, IRequest<GetPlanetsModel>
+    public class GetPlanetsQuery : BaseBasicItem, IRequest<GetPlanetsModel>
     {
         
     }

@@ -5,11 +5,11 @@ using SolarSystem.Persistence;
 
 namespace SolarSystem.Application
 {
-    public abstract class BaseBookCommandValidator<T> : AbstractValidator<T> where T : class
+    public abstract class BasePlanetCommandValidator<T> : AbstractValidator<T> where T : class
     {
         private readonly SolarSystemDbContext _context;
 
-        public BaseBookCommandValidator(SolarSystemDbContext context)
+        public BasePlanetCommandValidator(SolarSystemDbContext context)
         {
             _context = context;
         }

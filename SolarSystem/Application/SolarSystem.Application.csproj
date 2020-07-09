@@ -15,8 +15,4 @@
       <PackageReference Include="MediatR" Version="8.0.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Planet\Commands" />
-    </ItemGroup>
-
 </Project>

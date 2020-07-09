@@ -1,6 +1,10 @@
-﻿namespace SolarSystem.Application.Planet.Queries
+﻿using MediatR;
+using SolarSystem.Common;
+using SolarSystem.Common.Models.Planet;
+
+namespace SolarSystem.Application.Planet.Queries
 {
-    public class GetBookQuery
+    public class GetPlanetQuery : BaseItem, IRequest<GetPlanetModel>
     {
         
     }
