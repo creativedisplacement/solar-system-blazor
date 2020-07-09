@@ -7,8 +7,7 @@ namespace SolarSystem.Server.Configuration
     {
         public static void UseLoggingConfig(this IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            //TODO: enable logging
-            //loggerFactory.AddFile("Logs/SolarSystem-{Date}.txt");
+            loggerFactory.AddFile("Logs/SolarSystem-{Date}.txt");
         }
     }
 }
