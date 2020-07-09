@@ -24,7 +24,7 @@ namespace SolarSystem.Application.Planets
                 Planets = (await _context.Planets
                     .OrderBy(p => p.Ordinal)
                     .ToListAsync(cancellationToken)).Select(p => new GetPlanetModel
-                    {Id = p.Id, Name = p.Name, ImageUrl = p.ImageUrl, Introduction = p.Introduction})
+                    {Id = p.Id, Name = p.Name, ImageUrl = p.ImageUrl, Introduction = p.Introduction, Ordinal = p.Ordinal})
             };
         }
     }

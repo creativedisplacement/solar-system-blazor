@@ -1,7 +1,102 @@
 ﻿@page "/"
+@using SolarSystem.Common.Models.Planets
+@inject HttpClient Http
 
-<h1>Hello, world!</h1>
+<h1>Planets of the Solar System</h1>
+@if (_getPlanetsModel == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <p>
+        Some facts and figures on all the planets in the solar system in a
+        Blazor app.
+    </p>
+    <h2>Todo</h2>
+    <ul>
+        <li>Form component</li>
+        <li>Planet details in modal as component</li>
+        <li>Planet cards as component</li>
+        <li>Admin page</li>
+        <li>Create planet page</li>
+        <li>Update planet page</li>
+        <li>Delete planet page</li>
+        <li>Update nav</li>
+        <li>Fix height of planet cards</li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="container-fluid">
+        <div class="row">
 
-Welcome to your new app.
+            @foreach (var planet in _getPlanetsModel.Planets)
+            {
+                <div class="col-sm-3">
+                    <Button Clicked="@ShowModal">
+                        <CardDeck>
+                            <Card>
+                                <CardImage Source="@planet.ImageUrl" Alt="@planet.Name">
+                                </CardImage>
+                                <CardBody>
+                                    <CardTitle Size="5">@planet.Name</CardTitle>
+                                    <CardText>
+                                        @planet.Introduction
+                                    </CardText>
+                                </CardBody>
+                            </Card>
+                        </CardDeck>
+                    </Button>
+                </div>
+            }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        </div>
+    </div>
+
+    <Modal @ref="modalRef">
+        <ModalBackdrop/>
+        <ModalContent IsCentered="true">
+            <ModalHeader>
+                <ModalTitle>Employee edit</ModalTitle>
+                <CloseButton Clicked="@HideModal"/>
+            </ModalHeader>
+            <ModalBody>
+                <Field>
+                    <FieldLabel>Name</FieldLabel>
+                    <TextEdit Placeholder="Enter name..."/>
+                </Field>
+                <Field>
+                    <FieldLabel>Surname</FieldLabel>
+                    <TextEdit Placeholder="Enter surname..."/>
+                </Field>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
+}
+
+@code {
+    private GetPlanetsModel _getPlanetsModel;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _getPlanetsModel = await Http.GetFromJsonAsync<GetPlanetsModel>("api/v1/Planets");
+    }
+
+    private Modal modalRef;
+
+    private void ShowModal()
+    {
+        modalRef.Show();
+    }
+
+    private void HideModal()
+    {
+        modalRef.Hide();
+    }
+
+}
