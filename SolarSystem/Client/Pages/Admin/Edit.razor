@@ -1,0 +1,25 @@
+﻿@page "/Admin/Edit/{planetName}"
+@using SolarSystem.Common.Models.Planet
+@inject HttpClient Http
+@inject NavigationManager UriHelper
+@inject IJSRuntime Js
+
+<h1>Admin - Edit</h1>
+<Form ButtonText="Update planet" Planet="@_planet" OnValidSubmit="@EditPlanet"></Form>
+
+@code {
+    [Parameter]
+    public string PlanetName { get; set; }
+    GetPlanetModel _planet = new GetPlanetModel();
+    protected override async Task OnParametersSetAsync()
+    {
+        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetName}");
+    }
+
+    async Task EditPlanet()
+    {
+        await Http.PutAsJsonAsync("api/v1/planet", _planet);
+        await Js.InvokeVoidAsync("alert", $"Updated {_planet.Name} successfully!");
+        UriHelper.NavigateTo("/Admin/Index");
+    }
+}

@@ -6,7 +6,7 @@ namespace SolarSystem.Application.Planet.Queries
     {
         public GetPlanetQueryValidator()
         {
-            RuleFor(v => v.Id).NotEmpty();
+            RuleFor(v => v.Name).NotEmpty();
         }   
     }
 }

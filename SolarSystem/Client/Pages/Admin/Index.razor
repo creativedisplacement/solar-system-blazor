@@ -1,0 +1,59 @@
+﻿@page "/Admin/Index"
+@using SolarSystem.Common.Models.Planets
+@inject HttpClient Http
+@inject IJSRuntime Js
+
+<h1>Admin</h1>
+<div class="form-group">
+    <a class="btn btn-success" href="Admin/Create"><i class="oi oi-plus"></i> Create planet</a>
+</div>
+@if (_getPlanetsModel == null)
+{
+    <text>Loading...</text>
+}
+else if (!_getPlanetsModel.Planets.Any())
+{
+    <text>No Records Found.</text>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Planet</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var planet in _getPlanetsModel.Planets)
+        {
+            <tr>
+                <td>@planet.Name</td>
+                <td>@planet.Introduction</td>
+                <td>
+                    <a class="btn btn-success" href="Admin/Edit/@planet.Name">Edit</a>
+                    <button class="btn btn-danger" @onclick="@(() => Delete(@planet.Id))">Delete</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private GetPlanetsModel _getPlanetsModel;
+    protected override async Task OnInitializedAsync()
+    {
+        _getPlanetsModel = await Http.GetFromJsonAsync<GetPlanetsModel>("api/v1/planets");
+    }
+    async Task Delete(Guid planetId)
+    {
+        var planet = _getPlanetsModel.Planets.First(x => x.Id == planetId);
+        if (await Js.InvokeAsync<bool>("confirm", $"Do you want to delete {planet.Name}?"))
+        {
+            await Http.DeleteAsync($"api/v1/planet/{planetId}");
+            await OnInitializedAsync();
+        }
+    }
+}

@@ -17,16 +17,9 @@ else
     </p>
     <h2>Todo</h2>
     <ul>
-        <li>Form component</li>
-        <li>Planet details in modal as component</li>
-        <li>Admin page</li>
-        <li>Create planet page</li>
-        <li>Update planet page</li>
-        <li>Delete planet page</li>
-        <li>Update nav</li>
+        <li>Style planet details page</li>
         <li>Fix height of planet cards</li>
-        <li></li>
-        <li></li>
+        <li>Style form component</li>
     </ul>
     <div class="container-fluid">
         <div class="row">
@@ -34,37 +27,16 @@ else
             @foreach (var planet in _getPlanetsModel.Planets)
             {
                 <div class="col-sm-3">
-                    <Button Clicked="@ShowModal">
-                        <PlanetCard Planet="@planet" />
-                    </Button>
+                    <a href="Planet/@planet.Name">
+                        <div class="card-deck">
+                            <PlanetCard Planet="@planet"/>
+                        </div>
+                    </a>
                 </div>
             }
 
         </div>
     </div>
-
-    <Modal @ref="modalRef">
-        <ModalBackdrop/>
-        <ModalContent IsCentered="true">
-            <ModalHeader>
-                <ModalTitle></ModalTitle>
-                <CloseButton Clicked="@HideModal"/>
-            </ModalHeader>
-            <ModalBody>
-                <Field>
-                    <FieldLabel>Name</FieldLabel>
-                    <TextEdit Placeholder="Enter name..."/>
-                </Field>
-                <Field>
-                    <FieldLabel>Surname</FieldLabel>
-                    <TextEdit Placeholder="Enter surname..."/>
-                </Field>
-            </ModalBody>
-            <ModalFooter>
-                <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
-            </ModalFooter>
-        </ModalContent>
-    </Modal>
 }
 
 @code {
@@ -74,17 +46,4 @@ else
     {
         _getPlanetsModel = await Http.GetFromJsonAsync<GetPlanetsModel>("api/v1/planets");
     }
-
-    private Modal modalRef;
-
-    private void ShowModal()
-    {
-        modalRef.Show();
-    }
-
-    private void HideModal()
-    {
-        modalRef.Hide();
-    }
-
 }

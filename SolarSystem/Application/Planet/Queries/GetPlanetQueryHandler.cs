@@ -20,11 +20,11 @@ namespace SolarSystem.Application.Planet.Queries
         public async Task<GetPlanetModel> Handle(GetPlanetQuery request, CancellationToken cancellationToken)
         {
             var planet = await _context.Planets
-                .SingleOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+                .SingleOrDefaultAsync(p => p.Name == request.Name, cancellationToken);
 
             if (planet == null)
             {
-                throw new NotFoundException(nameof(Planet), request.Id);
+                throw new NotFoundException(nameof(Planet), request.Name);
             }
 
             return new GetPlanetModel
@@ -45,7 +45,8 @@ namespace SolarSystem.Application.Planet.Queries
                 Velocity = planet.Velocity,
                 Mass = planet.Mass,
                 Inclination = planet.Inclination,
-                Type = planet.Type
+                Type = planet.Type,
+                Ordinal = planet.Ordinal
             };
         }
     }

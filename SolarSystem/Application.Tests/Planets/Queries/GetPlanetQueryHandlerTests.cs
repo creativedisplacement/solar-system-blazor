@@ -17,7 +17,7 @@ namespace SolarSystem.Application.Tests.Planets.Queries
                 var handler = new GetPlanetQueryHandler(context);
                 var planet = await context.Planets.FirstAsync();
 
-                var result = await handler.Handle(new GetPlanetQuery {Id = planet.Id}, CancellationToken.None);
+                var result = await handler.Handle(new GetPlanetQuery {Name = planet.Name}, CancellationToken.None);
 
                 Assert.IsType<GetPlanetModel>(result);
                 Assert.Equal(planet.Id, result.Id);

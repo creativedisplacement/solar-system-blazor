@@ -1,16 +1,11 @@
 ﻿@using SolarSystem.Common.Models.Planets
-<CardDeck>
-    <Card>
-        <CardImage Source="@Planet.ImageUrl" Alt="@Planet.Name">
-        </CardImage>
-        <CardBody>
-            <CardTitle Size="5">@Planet.Name</CardTitle>
-            <CardText>
-                @Planet.Introduction
-            </CardText>
-        </CardBody>
-    </Card>
-</CardDeck>
+<div class="card">
+    <img src="@Planet.ImageUrl" class="card-img-top" alt="@Planet.Name">
+    <div class="card-body">
+      <h5 class="card-title">@Planet.Name</h5>
+      <p class="card-text">  @Planet.Introduction</p>
+    </div>
+  </div>
 @code {
     [Parameter] public GetPlanetModel Planet { get; set; }
 }

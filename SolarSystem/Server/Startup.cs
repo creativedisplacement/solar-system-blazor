@@ -1,10 +1,8 @@
-using Blazorise.Bootstrap;
-using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SolarSystem.Server.Configuration;
 
@@ -30,7 +28,6 @@ namespace SolarSystem.Server
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-            services.AddBlazoriseConfig();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -39,9 +36,6 @@ namespace SolarSystem.Server
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseExceptionHandlingConfig(env);
-            app.ApplicationServices
-                .UseBootstrapProviders()
-                .UseFontAwesomeIcons();
             app.UseRoutingConfig();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
