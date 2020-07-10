@@ -22,7 +22,7 @@
     </div>
     <div class="col-sm-12 col-md-9">
         <p>@_planet.Introduction</p>
-        <p>@_planet.Description</p>
+        <p>@((MarkupString)FormatDescription(_planet.Description))</p>
         <p><a class="btn btn-primary" href="/">Back to planets</a></p>
     </div>
 </div>
@@ -47,5 +47,10 @@
     private static string FormatQuickFacts(object value, string units)
     {
         return  $" {value} {units}";
+    }
+
+    private static string FormatDescription(string value)
+    {
+        return !string.IsNullOrEmpty(value) ? value.Replace(Environment.NewLine, "<br /><br />") : value;
     }
 }
