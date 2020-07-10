@@ -22,7 +22,7 @@ namespace SolarSystem.Application.Planet.Commands.UpdatePlanet
                 .NotEmpty();
             RuleFor(x => x.Description)
                 .MinimumLength(30)
-                .MaximumLength(300)
+                .MaximumLength(3000)
                 .NotEmpty();
             RuleFor(x => x.Type)
                 .MinimumLength(5)

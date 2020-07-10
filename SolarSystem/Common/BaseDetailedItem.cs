@@ -6,7 +6,7 @@ namespace SolarSystem.Common
     {
         [Required]
         [MinLength(30)]
-        [StringLength(300)]
+        [StringLength(3000)]
         public string Description { get; set; }
         public double Density { get; set; }
         public double Tilt { get; set; }

@@ -4,7 +4,11 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-a, a:link, a:hover, a:visited, .btn-link {
+/*a, a:link, a:hover, a:visited, .btn-link {
+    color: #212529;
+}*/
+
+a.planet-card-link{
     color: #212529;
 }
 

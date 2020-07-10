@@ -15,17 +15,13 @@ else
         Some facts and figures on all the planets in the solar system in a
         Blazor app.
     </p>
-    <h2>Todo</h2>
-    <ul>
-        <li>Fix height of planet cards</li>
-    </ul>
     <div class="container-fluid">
         <div class="row">
 
             @foreach (var planet in _getPlanetsModel.Planets)
             {
                 <div class="col-sm-3">
-                    <a href="Planet/@planet.Name">
+                    <a class="planet-card-link" href="Planet/@planet.Name">
                         <div class="card-deck">
                             <PlanetCard Planet="@planet"/>
                         </div>
