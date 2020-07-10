@@ -1,0 +1,16 @@
+﻿@using SolarSystem.Common.Models.Planets
+<CardDeck>
+    <Card>
+        <CardImage Source="@Planet.ImageUrl" Alt="@Planet.Name">
+        </CardImage>
+        <CardBody>
+            <CardTitle Size="5">@Planet.Name</CardTitle>
+            <CardText>
+                @Planet.Introduction
+            </CardText>
+        </CardBody>
+    </Card>
+</CardDeck>
+@code {
+    [Parameter] public GetPlanetModel Planet { get; set; }
+}

@@ -19,7 +19,6 @@ else
     <ul>
         <li>Form component</li>
         <li>Planet details in modal as component</li>
-        <li>Planet cards as component</li>
         <li>Admin page</li>
         <li>Create planet page</li>
         <li>Update planet page</li>
@@ -36,18 +35,7 @@ else
             {
                 <div class="col-sm-3">
                     <Button Clicked="@ShowModal">
-                        <CardDeck>
-                            <Card>
-                                <CardImage Source="@planet.ImageUrl" Alt="@planet.Name">
-                                </CardImage>
-                                <CardBody>
-                                    <CardTitle Size="5">@planet.Name</CardTitle>
-                                    <CardText>
-                                        @planet.Introduction
-                                    </CardText>
-                                </CardBody>
-                            </Card>
-                        </CardDeck>
+                        <PlanetCard Planet="@planet" />
                     </Button>
                 </div>
             }
@@ -59,7 +47,7 @@ else
         <ModalBackdrop/>
         <ModalContent IsCentered="true">
             <ModalHeader>
-                <ModalTitle>Employee edit</ModalTitle>
+                <ModalTitle></ModalTitle>
                 <CloseButton Clicked="@HideModal"/>
             </ModalHeader>
             <ModalBody>
@@ -84,7 +72,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _getPlanetsModel = await Http.GetFromJsonAsync<GetPlanetsModel>("api/v1/Planets");
+        _getPlanetsModel = await Http.GetFromJsonAsync<GetPlanetsModel>("api/v1/planets");
     }
 
     private Modal modalRef;
