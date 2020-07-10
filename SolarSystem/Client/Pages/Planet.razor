@@ -3,30 +3,48 @@
 @inject HttpClient Http
 @inject NavigationManager UriHelper
 <h1>@_planet.Name</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-5">
-            <img src="@_planet.ImageUrl" alt="@_planet.Name" width="300" />
-            <div class="col-sm-12 col-md-12">
-                <div class="alert-secondary">
-                    <h2>Quick facts</h2>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-sm-12 col-md-3">
+        <img class="img-fluid" src="@_planet.ImageUrl" alt="@_planet.Name" />
+        <div class="col-md-12 alert-secondary">
+            <h2>Quick facts</h2>
+            <p><span class="badge badge-secondary">Day</span>@FormatQuickFacts(_planet.RotationPeriod, "hours")
+            </p>
+            <p><span class="badge badge-secondary">Year</span>@FormatQuickFacts(_planet.Period, "Earth years")
+            </p>
+            <p><span class="badge badge-secondary">Planet type</span>@FormatQuickFacts(_planet.Type,"")
+            </p>
+            <p><span class="badge badge-secondary">Radius</span>@FormatQuickFacts(FormatNumbersWithCommas(_planet.Radius), "kilometres")
+            </p>
+            <p><span class="badge badge-secondary">Number of moons</span>@FormatQuickFacts(_planet.Moons, "")
+            </p>
         </div>
-        <div class="col-sm-12 col-md-7">
-            <p>@_planet.Introduction</p>
-            <p>@_planet.Description</p>
-        </div>
+    </div>
+    <div class="col-sm-12 col-md-9">
+        <p>@_planet.Introduction</p>
+        <p>@_planet.Description</p>
     </div>
 </div>
 
 @code {
-    [Parameter] public string PlanetName { get; set; }
+
+    [Parameter]
+    public string PlanetName { get; set; }
+
     GetPlanetModel _planet = new GetPlanetModel();
+
     protected override async Task OnParametersSetAsync()
     {
         _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetName}");
     }
 
-   
+    private static string FormatNumbersWithCommas(double value)
+    {
+        return $"{value:0,0.0}";
+    }
+
+    private static string FormatQuickFacts(object value, string units)
+    {
+        return  $" {value} {units}";
+    }
 }

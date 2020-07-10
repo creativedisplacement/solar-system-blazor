@@ -1,162 +1,167 @@
 ﻿@using SolarSystem.Common.Models.Planet
 
-<EditForm Model="@Planet" OnValidSubmit="@OnValidSubmit">
-    <DataAnnotationsValidator/>
-    <div class="form-group">
-        <label>Name:</label>
-        <div>
-            <InputText @bind-Value="@Planet.Name"/>
-            <ValidationMessage For="@(() => Planet.Name)"/>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Introduction :</label>
-            <div>
-                <InputText @bind-Value="@Planet.Introduction"/>
-                <ValidationMessage For="@(() => Planet.Introduction)"/>
+
+<div class="row">
+    <div class="col-6">
+        <EditForm Model="@Planet" OnValidSubmit="@OnValidSubmit">
+            <DataAnnotationsValidator/>
+            <div class="form-group">
+                <label>Name :</label>
+                <div>
+                    <InputText @bind-Value="@Planet.Name" class="form-control" aria-describedby="@Planet.Name"/>
+                    <ValidationMessage For="@(() => Planet.Name)"/>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Description :</label>
-            <div>
-                <InputTextArea @bind-Value="@Planet.Description"/>
-                <ValidationMessage For="@(() => Planet.Description)"/>
+            <div class="form-group">
+                <div>
+                    <label>Introduction :</label>
+                    <div>
+                        <InputText @bind-Value="@Planet.Introduction" class="form-control" aria-describedby="@Planet.Introduction"/>
+                        <ValidationMessage For="@(() => Planet.Introduction)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Density :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Density"/>
-                <ValidationMessage For="@(() => Planet.Density)"/>
+            <div class="form-group">
+                <div>
+                    <label>Description :</label>
+                    <div>
+                        <InputTextArea @bind-Value="@Planet.Description" class="form-control" rows="10" aria-describedby="@Planet.Description"/>
+                        <ValidationMessage For="@(() => Planet.Description)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Tilt :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Tilt"/>
-                <ValidationMessage For="@(() => Planet.Tilt)"/>
+            <div class="form-group">
+                <div>
+                    <label>Density :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Density" class="form-control" aria-describedby="@Planet.Density"/>
+                        <ValidationMessage For="@(() => Planet.Density)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Image Url :</label>
-            <div>
-                <InputText @bind-Value="@Planet.ImageUrl"/>
-                <ValidationMessage For="@(() => Planet.ImageUrl)"/>
+            <div class="form-group">
+                <div>
+                    <label>Tilt :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Tilt" class="form-control" aria-describedby="@Planet.Tilt"/>
+                        <ValidationMessage For="@(() => Planet.Tilt)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Rotation period :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.RotationPeriod"/>
-                <ValidationMessage For="@(() => Planet.RotationPeriod)"/>
+            <div class="form-group">
+                <div>
+                    <label>Image Url :</label>
+                    <div>
+                        <InputText @bind-Value="@Planet.ImageUrl" class="form-control" aria-describedby="@Planet.ImageUrl"/>
+                        <ValidationMessage For="@(() => Planet.ImageUrl)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Period :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Period"/>
-                <ValidationMessage For="@(() => Planet.Period)"/>
+            <div class="form-group">
+                <div>
+                    <label>Rotation period :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.RotationPeriod" class="form-control" aria-describedby="@Planet.RotationPeriod"/>
+                        <ValidationMessage For="@(() => Planet.RotationPeriod)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Radius :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Radius"/>
-                <ValidationMessage For="@(() => Planet.Radius)"/>
+            <div class="form-group">
+                <div>
+                    <label>Period :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Period" class="form-control" aria-describedby="@Planet.Period"/>
+                        <ValidationMessage For="@(() => Planet.Period)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Moons :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Moons"/>
-                <ValidationMessage For="@(() => Planet.Moons)"/>
+            <div class="form-group">
+                <div>
+                    <label>Radius :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Radius" class="form-control" aria-describedby="@Planet.Radius"/>
+                        <ValidationMessage For="@(() => Planet.Radius)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Au :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Au"/>
-                <ValidationMessage For="@(() => Planet.Au)"/>
+            <div class="form-group">
+                <div>
+                    <label>Moons :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Moons" class="form-control" aria-describedby="@Planet.Moons"/>
+                        <ValidationMessage For="@(() => Planet.Moons)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Eccentricity :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Eccentricity"/>
-                <ValidationMessage For="@(() => Planet.Eccentricity)"/>
+            <div class="form-group">
+                <div>
+                    <label>Au :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Au" class="form-control" aria-describedby="@Planet.Au"/>
+                        <ValidationMessage For="@(() => Planet.Au)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Velocity :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Velocity"/>
-                <ValidationMessage For="@(() => Planet.Velocity)"/>
+            <div class="form-group">
+                <div>
+                    <label>Eccentricity :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Eccentricity" class="form-control" aria-describedby="@Planet.Eccentricity"/>
+                        <ValidationMessage For="@(() => Planet.Eccentricity)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Mass:</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Mass"/>
-                <ValidationMessage For="@(() => Planet.Mass)"/>
+            <div class="form-group">
+                <div>
+                    <label>Velocity :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Velocity" class="form-control" aria-describedby="@Planet.Velocity"/>
+                        <ValidationMessage For="@(() => Planet.Velocity)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Inclination :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Inclination"/>
-                <ValidationMessage For="@(() => Planet.Inclination)"/>
+            <div class="form-group">
+                <div>
+                    <label>Mass :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Mass" class="form-control" aria-describedby="@Planet.Mass"/>
+                        <ValidationMessage For="@(() => Planet.Mass)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Planet type (e.g. Terrestrial, Gas giant, Ice giant) :</label>
-            <div>
-                <InputText @bind-Value="@Planet.Type"/>
-                <ValidationMessage For="@(() => Planet.Type)"/>
+            <div class="form-group">
+                <div>
+                    <label>Inclination :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Inclination" class="form-control" aria-describedby="@Planet.Inclination"/>
+                        <ValidationMessage For="@(() => Planet.Inclination)"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group ">
-        <div>
-            <label>Ordinal :</label>
-            <div>
-                <InputNumber @bind-Value="@Planet.Ordinal"/>
-                <ValidationMessage For="@(() => Planet.Ordinal)"/>
+            <div class="form-group">
+                <div>
+                    <label>Planet type (e.g. Terrestrial, Gas giant, Ice giant) :</label>
+                    <div>
+                        <InputText @bind-Value="@Planet.Type" class="form-control" aria-describedby="@Planet.Type"/>
+                        <ValidationMessage For="@(() => Planet.Type)"/>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                <div>
+                    <label>Ordinal :</label>
+                    <div>
+                        <InputNumber @bind-Value="@Planet.Ordinal" class="form-control" aria-describedby="@Planet.Ordinal"/>
+                        <ValidationMessage For="@(() => Planet.Ordinal)"/>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">
+                @ButtonText
+            </button>
+        </EditForm>
     </div>
-    <button type="submit" class="btn btn-success">
-        @ButtonText
-    </button>
-</EditForm>
+</div>
 
 @code {
 
