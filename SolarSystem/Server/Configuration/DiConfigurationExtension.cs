@@ -19,8 +19,7 @@ namespace SolarSystem.Server.Configuration
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddMediatR(typeof(GetPlanetsQueryHandler).GetTypeInfo().Assembly);
-            services.AddSingleton<IPlanetsCache<GetPlanetsModel>, PlanetsCache<GetPlanetsModel>>();
-            services.AddSingleton<IPlanetsCache<GetPlanetModel>, PlanetsCache<GetPlanetModel>>();
+            services.AddSingleton<IPlanetCache,PlanetCache>();
         }
     }
 }

@@ -11,30 +11,12 @@ namespace SolarSystem.Server.Controllers
     [Route("api/v1/[controller]")]
     public class PlanetsController : BaseController
     {
-        private readonly IPlanetsCache<GetPlanetsModel> _cache;
-
-        public PlanetsController(IPlanetsCache<GetPlanetsModel> cache)
-        {
-            _cache = cache;
-        }
-        
         [HttpGet]
         public async Task<IActionResult> GetAllPlanets()
         {
             try
             {
-                var planets = _cache.Get("All");
-                if (planets != null)
-                {
-                    return new ObjectResult(planets);
-                }
-                planets = await Mediator.Send(new GetPlanetsQuery());
-                if (planets == null)
-                {
-                    return NotFound();
-                }
-                _cache.Set("All", planets);
-
+                var planets = await Mediator.Send(new GetPlanetsQuery());
                 return new ObjectResult(planets);
             }
             catch (InvalidOperationException)

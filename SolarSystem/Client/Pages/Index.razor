@@ -21,7 +21,7 @@ else
             @foreach (var planet in _getPlanetsModel.Planets)
             {
                 <div class="col-sm-3">
-                    <a class="planet-card-link" href="Planet/@planet.Name">
+                    <a class="planet-card-link" href="Planet/@planet.Name/@planet.Id">
                         <div class="card-deck">
                             <PlanetCard Planet="@planet"/>
                         </div>

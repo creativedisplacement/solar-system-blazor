@@ -1,4 +1,4 @@
-﻿@page "/Planet/{planetName}"
+﻿@page "/Planet/{planetName}/{planetId:guid}"
 @using SolarSystem.Common.Models.Planet
 @inject HttpClient Http
 @inject NavigationManager UriHelper
@@ -31,12 +31,15 @@
 
     [Parameter]
     public string PlanetName { get; set; }
+    
+    [Parameter]
+    public Guid PlanetId { get; set; }
 
     GetPlanetModel _planet = new GetPlanetModel();
 
     protected override async Task OnParametersSetAsync()
     {
-        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetName}");
+        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetName}/{PlanetId}");
     }
 
     private static string FormatNumbersWithCommas(double value)

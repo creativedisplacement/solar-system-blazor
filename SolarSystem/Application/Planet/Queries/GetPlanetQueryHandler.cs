@@ -20,11 +20,11 @@ namespace SolarSystem.Application.Planet.Queries
         public async Task<GetPlanetModel> Handle(GetPlanetQuery request, CancellationToken cancellationToken)
         {
             var planet = await _context.Planets
-                .SingleOrDefaultAsync(p => p.Name == request.Name, cancellationToken);
+                .SingleOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
 
             if (planet == null)
             {
-                throw new NotFoundException(nameof(Planet), request.Name);
+                throw new NotFoundException(nameof(Planet), request.Id);
             }
 
             return new GetPlanetModel

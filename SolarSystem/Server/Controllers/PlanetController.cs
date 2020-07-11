@@ -14,33 +14,33 @@ namespace SolarSystem.Server.Controllers
     [Route("api/v1/[controller]")]
     public class PlanetController : BaseController
     {
-        private readonly IPlanetsCache<GetPlanetModel> _cache;
+        private readonly IPlanetCache _cache;
 
-        public PlanetController(IPlanetsCache<GetPlanetModel> cache)
+        public PlanetController(IPlanetCache cache)
         {
             _cache = cache;
         }
 
-        [HttpGet("{name}")]
-        public async Task<IActionResult> GetPlanet(string name)
+        [HttpGet("{name}/{id}")]
+        public async Task<IActionResult> GetPlanet(string name, Guid id)
         {
             try
             {
-                var planet = _cache.Get(name);
+                var planet = _cache.Get(id);
 
                 if (planet != null)
                 {
                     return new ObjectResult(planet);
                 }
 
-                planet = await Mediator.Send(new GetPlanetQuery {Name = name});
+                planet = await Mediator.Send(new GetPlanetQuery {Id = id});
 
                 if (planet == null)
                 {
                     return NotFound();
                 }
 
-                _cache.Set(name, planet);
+                _cache.Set(planet);
 
                 return new ObjectResult(planet);
             }
