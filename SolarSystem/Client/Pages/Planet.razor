@@ -39,7 +39,7 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetName}/{PlanetId}");
+        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetId}");
     }
 
     private static string FormatNumbersWithCommas(double value)

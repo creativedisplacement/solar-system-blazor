@@ -21,8 +21,8 @@ namespace SolarSystem.Server.Controllers
             _cache = cache;
         }
 
-        [HttpGet("{name}/{id}")]
-        public async Task<IActionResult> GetPlanet(string name, Guid id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPlanet(Guid id)
         {
             try
             {
