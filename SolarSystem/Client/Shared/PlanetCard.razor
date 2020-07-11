@@ -3,9 +3,18 @@
     <img src="@Planet.ImageUrl" class="card-img-top" alt="@Planet.Name">
     <div class="card-body">
       <h5 class="card-title">@Planet.Name</h5>
-      <p class="card-text">  @Planet.Introduction</p>
+      <p class="card-text">@TruncateAtWord(Planet.Introduction, 70)</p>
     </div>
   </div>
 @code {
     [Parameter] public GetPlanetModel Planet { get; set; }
+
+    private static string TruncateAtWord(string value, int length) {
+        if (value == null || value.Length < length || value.IndexOf(" ", length, StringComparison.Ordinal) == -1)
+        {
+            return value;
+        }
+
+        return $"{value.Substring(0, value.IndexOf(" ", length, StringComparison.Ordinal))}...";
+    }
 }
