@@ -6,6 +6,7 @@ using SolarSystem.Application.Planet.Commands.DeletePlanet;
 using SolarSystem.Application.Planet.Commands.UpdatePlanet;
 using SolarSystem.Application.Planet.Queries;
 using SolarSystem.Common.Models.Planet;
+using SolarSystem.Infrastructure;
 
 namespace SolarSystem.Server.Controllers
 {
@@ -13,12 +14,33 @@ namespace SolarSystem.Server.Controllers
     [Route("api/v1/[controller]")]
     public class PlanetController : BaseController
     {
+        private readonly IPlanetsCache<GetPlanetModel> _cache;
+
+        public PlanetController(IPlanetsCache<GetPlanetModel> cache)
+        {
+            _cache = cache;
+        }
+
         [HttpGet("{name}")]
         public async Task<IActionResult> GetPlanet(string name)
         {
             try
             {
-                var planet = await Mediator.Send(new GetPlanetQuery{ Name = name });
+                var planet = _cache.Get(name);
+
+                if (planet != null)
+                {
+                    return new ObjectResult(planet);
+                }
+
+                planet = await Mediator.Send(new GetPlanetQuery {Name = name});
+
+                if (planet == null)
+                {
+                    return NotFound();
+                }
+
+                _cache.Set(name, planet);
 
                 return new ObjectResult(planet);
             }
@@ -27,7 +49,7 @@ namespace SolarSystem.Server.Controllers
                 return NotFound();
             }
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> Post(GetPlanetModel planet)
         {
@@ -90,6 +112,8 @@ namespace SolarSystem.Server.Controllers
                     Ordinal = planet.Ordinal
                 });
 
+                _cache.Remove(planet.Id);
+
                 return new ObjectResult(updatedPlanet);
             }
             catch (InvalidOperationException)
@@ -97,15 +121,15 @@ namespace SolarSystem.Server.Controllers
                 return BadRequest();
             }
         }
-        
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             try
             {
-               await Mediator.Send(new DeletePlanetCommand { Id = id });
-
-               return NoContent();
+                await Mediator.Send(new DeletePlanetCommand {Id = id});
+                _cache.Remove(id);
+                return NoContent();
             }
             catch (InvalidOperationException)
             {

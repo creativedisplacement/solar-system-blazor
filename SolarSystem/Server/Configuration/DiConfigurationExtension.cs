@@ -4,6 +4,10 @@ using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 using SolarSystem.Application.Infrastructure;
 using SolarSystem.Application.Planets;
+using SolarSystem.Common.Models.Planets;
+using SolarSystem.Infrastructure;
+using SolarSystem.Server.Cache;
+using GetPlanetModel = SolarSystem.Common.Models.Planet.GetPlanetModel;
 
 namespace SolarSystem.Server.Configuration
 {
@@ -15,6 +19,8 @@ namespace SolarSystem.Server.Configuration
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddMediatR(typeof(GetPlanetsQueryHandler).GetTypeInfo().Assembly);
+            services.AddSingleton<IPlanetsCache<GetPlanetsModel>, PlanetsCache<GetPlanetsModel>>();
+            services.AddSingleton<IPlanetsCache<GetPlanetModel>, PlanetsCache<GetPlanetModel>>();
         }
     }
 }
