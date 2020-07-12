@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Server", "Serve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Client", "Client\SolarSystem.Client.csproj", "{3601FAA8-ED88-4FFC-94DB-34DDCB05A7C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Shared", "Shared\SolarSystem.Shared.csproj", "{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Persistence", "Persistence\SolarSystem.Persistence.csproj", "{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Domain", "Domain\SolarSystem.Domain.csproj", "{D8FDFDC3-BC14-4718-AD6C-E534CED8D2D6}"
@@ -41,10 +39,6 @@ Global
 		{3601FAA8-ED88-4FFC-94DB-34DDCB05A7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3601FAA8-ED88-4FFC-94DB-34DDCB05A7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3601FAA8-ED88-4FFC-94DB-34DDCB05A7C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C8692B9-2E42-4E96-BAE7-F92C589FAF81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF083472-DBBF-4E10-B1B9-E1AAF2B878B4}.Release|Any CPU.ActiveCfg = Release|Any CPU

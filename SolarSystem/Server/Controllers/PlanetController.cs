@@ -25,6 +25,11 @@ namespace SolarSystem.Server.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPlanet(Guid id)
         {
+            if (id == Guid.Empty)
+            {
+                throw new ArgumentException();
+            }
+            
             try
             {
                 var planet = _cache.Get(id);
@@ -54,6 +59,11 @@ namespace SolarSystem.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> PostPlanet(GetPlanetModel planet)
         {
+            if (planet == null)
+            {
+                throw new ArgumentException();
+            }
+            
             try
             {
                 var createdPlanet = await Mediator.Send(new CreatePlanetCommand
@@ -89,6 +99,11 @@ namespace SolarSystem.Server.Controllers
         [HttpPut]
         public async Task<IActionResult> PutPlanet(GetPlanetModel planet)
         {
+            if (planet == null)
+            {
+                throw new ArgumentException();
+            }
+            
             try
             {
                 var updatedPlanet = await Mediator.Send(new UpdatePlanetCommand
@@ -126,6 +141,11 @@ namespace SolarSystem.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlanet(Guid id)
         {
+            if (id == Guid.Empty)
+            {
+                throw new ArgumentException();
+            }
+            
             try
             {
                 await Mediator.Send(new DeletePlanetCommand {Id = id});
