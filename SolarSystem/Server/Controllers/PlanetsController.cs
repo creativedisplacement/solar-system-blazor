@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SolarSystem.Application.Planets;
 using SolarSystem.Common.Models.Planets;
@@ -11,6 +12,8 @@ namespace SolarSystem.Server.Controllers
     [Route("api/v1/[controller]")]
     public class PlanetsController : BaseController
     {
+        public PlanetsController(IMediator mediator) : base(mediator) { }
+        
         [HttpGet]
         public async Task<IActionResult> GetAllPlanets()
         {

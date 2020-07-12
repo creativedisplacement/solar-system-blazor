@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Domain.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Infrastructure", "Infrastructure\SolarSystem.Infrastructure.csproj", "{1FCA1820-2DBF-49C1-AD9D-F6AB84087FBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Server.Tests", "Server.Tests\SolarSystem.Server.Tests.csproj", "{7F4F0579-F99F-47CD-8A77-71FA48C471DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{1FCA1820-2DBF-49C1-AD9D-F6AB84087FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FCA1820-2DBF-49C1-AD9D-F6AB84087FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FCA1820-2DBF-49C1-AD9D-F6AB84087FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F4F0579-F99F-47CD-8A77-71FA48C471DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F4F0579-F99F-47CD-8A77-71FA48C471DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F4F0579-F99F-47CD-8A77-71FA48C471DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F4F0579-F99F-47CD-8A77-71FA48C471DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,5 +87,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{968203BF-44CB-4126-9918-7C686044CEC2} = {B54C6260-116E-4D26-A93C-213392AE50E6}
 		{4EF67713-CDED-4A8D-BBF2-8F36715AFC8B} = {B54C6260-116E-4D26-A93C-213392AE50E6}
+		{7F4F0579-F99F-47CD-8A77-71FA48C471DB} = {B54C6260-116E-4D26-A93C-213392AE50E6}
 	EndGlobalSection
 EndGlobal

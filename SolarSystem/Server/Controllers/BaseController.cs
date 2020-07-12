@@ -9,9 +9,12 @@ namespace SolarSystem.Server.Controllers
     [Produces("application/json")]
     public abstract class BaseController : ControllerBase
     {
-        //TODO add caching
-        private IMediator _mediator;
+        protected BaseController(IMediator mediator)
+        {
+            Mediator = mediator;
+        }
+        
 
-        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+        protected IMediator Mediator { get; }
     }
 }

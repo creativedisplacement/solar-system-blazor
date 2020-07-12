@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SolarSystem.Application.Planet.Commands.CreatePlanet;
 using SolarSystem.Application.Planet.Commands.DeletePlanet;
@@ -16,7 +17,7 @@ namespace SolarSystem.Server.Controllers
     {
         private readonly IPlanetCache _cache;
 
-        public PlanetController(IPlanetCache cache)
+        public PlanetController(IPlanetCache cache, IMediator mediator) : base(mediator)
         {
             _cache = cache;
         }
@@ -51,7 +52,7 @@ namespace SolarSystem.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(GetPlanetModel planet)
+        public async Task<IActionResult> PostPlanet(GetPlanetModel planet)
         {
             try
             {
@@ -86,7 +87,7 @@ namespace SolarSystem.Server.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(GetPlanetModel planet)
+        public async Task<IActionResult> PutPlanet(GetPlanetModel planet)
         {
             try
             {
@@ -123,7 +124,7 @@ namespace SolarSystem.Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> DeletePlanet(Guid id)
         {
             try
             {
