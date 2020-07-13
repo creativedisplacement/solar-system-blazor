@@ -3,8 +3,6 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SolarSystem.Application.Planets;
-using SolarSystem.Common.Models.Planets;
-using SolarSystem.Infrastructure;
 
 namespace SolarSystem.Server.Controllers
 {

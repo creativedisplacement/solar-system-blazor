@@ -7,11 +7,11 @@ namespace SolarSystem.Server.Cache
 {
     public class PlanetCache : IPlanetCache
     {
-        private MemoryCache _cache { get; set; }
+        private MemoryCache Cache { get; set; }
 
         public PlanetCache()
         {
-            _cache = new MemoryCache(new MemoryCacheOptions
+            Cache = new MemoryCache(new MemoryCacheOptions
             {
                 SizeLimit = 20
             });
@@ -19,20 +19,20 @@ namespace SolarSystem.Server.Cache
 
         public GetPlanetModel Get(Guid id)
         {
-            _cache.TryGetValue(GetCacheKey(id), out GetPlanetModel planet);
+            Cache.TryGetValue(GetCacheKey(id), out GetPlanetModel planet);
             return planet;
         }
 
         public void Remove(Guid id)
         {
-            _cache.Remove(GetCacheKey(id));
+            Cache.Remove(GetCacheKey(id));
         }
 
         public void Set(GetPlanetModel planet)
         {
             var cacheEntryOptions = new MemoryCacheEntryOptions().SetSize(1);
-            _cache.Set(GetCacheKey(planet.Id), planet, cacheEntryOptions);
-            _cache.Set(GetCacheKey(planet.Name), planet, cacheEntryOptions);
+            Cache.Set(GetCacheKey(planet.Id), planet, cacheEntryOptions);
+            Cache.Set(GetCacheKey(planet.Name), planet, cacheEntryOptions);
         }
         
         private static string GetCacheKey(Guid planetId) =>

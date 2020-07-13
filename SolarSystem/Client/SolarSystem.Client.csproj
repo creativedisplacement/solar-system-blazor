@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\SolarSystem.Common.csproj" />
-    <ProjectReference Include="..\Shared\SolarSystem.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

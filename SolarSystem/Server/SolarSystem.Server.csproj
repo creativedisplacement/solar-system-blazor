@@ -19,7 +19,6 @@
     <ProjectReference Include="..\Client\SolarSystem.Client.csproj" />
     <ProjectReference Include="..\Infrastructure\SolarSystem.Infrastructure.csproj" />
     <ProjectReference Include="..\Persistence\SolarSystem.Persistence.csproj" />
-    <ProjectReference Include="..\Shared\SolarSystem.Shared.csproj" />
   </ItemGroup>
 
 
