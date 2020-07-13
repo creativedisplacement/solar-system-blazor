@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using SolarSystem.Application.Planets;
+using SolarSystem.Application.Planets.Queries;
 using SolarSystem.Common.Models.Planets;
 using Xunit;
 

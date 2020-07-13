@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SolarSystem.Application.Planets;
+using SolarSystem.Application.Planets.Queries;
 
 namespace SolarSystem.Server.Controllers
 {

@@ -7,7 +7,7 @@ namespace SolarSystem.Server.Cache
 {
     public class PlanetCache : IPlanetCache
     {
-        private MemoryCache Cache { get; set; }
+        private MemoryCache Cache { get; }
 
         public PlanetCache()
         {

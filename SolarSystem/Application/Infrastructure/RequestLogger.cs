@@ -18,7 +18,7 @@ namespace SolarSystem.Application.Infrastructure
         {
             var name = typeof(TRequest).Name;
 
-            // TODO: Wire up to serilog
+            // TODO: Wire up to Serilog
 
             _logger.LogInformation("Library Request: {Name} {@Request}", name, request);
 

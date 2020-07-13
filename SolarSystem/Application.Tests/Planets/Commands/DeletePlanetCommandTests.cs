@@ -29,8 +29,11 @@ namespace SolarSystem.Application.Tests.Planets.Commands
         [Fact]
         public void Delete_Planet_With_No_Id_Throws_Exception()
         {
-            var validator = new DeletePlanetCommandValidator();
-            validator.ShouldHaveValidationErrorFor(x => x.Id, Guid.Empty);
+            using (var context = GetContextWithData())
+            {
+                var validator = new DeletePlanetCommandValidator(context);
+                validator.ShouldHaveValidationErrorFor(x => x.Id, Guid.Empty);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SolarSystem.Domain.Entities.Abstract;
+﻿using System;
+using SolarSystem.Domain.Entities.Abstract;
 using SolarSystem.Domain.Enums;
 using SolarSystem.Persistence;
 
@@ -28,6 +29,8 @@ namespace SolarSystem.Application
                     break;
                 case Status.Unchanged:
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

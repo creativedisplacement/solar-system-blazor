@@ -3,7 +3,7 @@ using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 using SolarSystem.Application.Infrastructure;
-using SolarSystem.Application.Planets;
+using SolarSystem.Application.Planets.Queries;
 using SolarSystem.Infrastructure;
 using SolarSystem.Server.Cache;
 

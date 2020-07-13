@@ -9,7 +9,7 @@ namespace SolarSystem.Application
     {
         private readonly SolarSystemDbContext _context;
 
-        public BasePlanetCommandValidator(SolarSystemDbContext context)
+        protected BasePlanetCommandValidator(SolarSystemDbContext context)
         {
             _context = context;
         }

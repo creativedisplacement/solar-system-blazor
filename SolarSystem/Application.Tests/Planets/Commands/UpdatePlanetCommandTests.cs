@@ -153,21 +153,22 @@ namespace SolarSystem.Application.Tests.Planets.Commands
             {
                 var planet = context.Planets.FirstOrDefault();
 
-                if (planet != null)
+                if (planet == null)
                 {
-                    var validator = new UpdatePlanetCommandValidator(context);
-                    var result = validator.TestValidate(new UpdatePlanetCommand
-                    {
-                        
-                        Id = planet.Id,
-                        Name = "Venus",
-                        ImageUrl = ImageUrl,
-                        Introduction = Introduction,
-                        Description = Description,
-                        Type = Type
-                    });
-                    result.ShouldHaveValidationErrorFor(x => x);
+                    return;
                 }
+                var validator = new UpdatePlanetCommandValidator(context);
+                var result = validator.TestValidate(new UpdatePlanetCommand
+                {
+                        
+                    Id = planet.Id,
+                    Name = "Venus",
+                    ImageUrl = ImageUrl,
+                    Introduction = Introduction,
+                    Description = Description,
+                    Type = Type
+                });
+                result.ShouldHaveValidationErrorFor(x => x);
             }
         }
     }

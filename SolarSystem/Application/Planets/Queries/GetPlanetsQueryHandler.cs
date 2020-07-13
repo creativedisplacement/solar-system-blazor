@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using SolarSystem.Common.Models.Planets;
 using SolarSystem.Persistence;
 
-namespace SolarSystem.Application.Planets
+namespace SolarSystem.Application.Planets.Queries
 {
     public class GetPlanetsQueryHandler: IRequestHandler<GetPlanetsQuery, GetPlanetsModel>
     {

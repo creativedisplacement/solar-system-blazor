@@ -18,9 +18,9 @@ namespace SolarSystem.Server.Tests
     public class PlanetControllerTests
     {
         private PlanetController _controller;
-        private Mock<IPlanetCache> _cache;
-        private Mock<IMediator> _mediator;
-        private GetPlanetModel _planet;
+        private readonly Mock<IPlanetCache> _cache;
+        private readonly Mock<IMediator> _mediator;
+        private readonly GetPlanetModel _planet;
 
         public PlanetControllerTests()
         {
@@ -62,9 +62,7 @@ namespace SolarSystem.Server.Tests
             var response = await _controller.GetPlanet(planetId);
             Assert.IsType<ObjectResult>(response);
 
-            var result = response as ObjectResult;
-
-            if (result == null)
+            if (!(response is ObjectResult result))
             {
                 throw new ArgumentException();
             }
@@ -87,9 +85,7 @@ namespace SolarSystem.Server.Tests
             var response = await _controller.GetPlanet(planetId);
             Assert.IsType<ObjectResult>(response);
 
-            var result = response as ObjectResult;
-
-            if (result == null)
+            if (!(response is ObjectResult result))
             {
                 throw new ArgumentException();
             }
@@ -120,9 +116,7 @@ namespace SolarSystem.Server.Tests
             var response = await _controller.PostPlanet(_planet);
             Assert.IsType<ObjectResult>(response);
 
-            var result = response as ObjectResult;
-
-            if (result == null)
+            if (!(response is ObjectResult result))
             {
                 throw new ArgumentException();
             }
@@ -151,9 +145,7 @@ namespace SolarSystem.Server.Tests
             var response = await _controller.PutPlanet(_planet);
             Assert.IsType<ObjectResult>(response);
 
-            var result = response as ObjectResult;
-
-            if (result == null)
+            if (!(response is ObjectResult result))
             {
                 throw new ArgumentException();
             }
@@ -173,9 +165,7 @@ namespace SolarSystem.Server.Tests
             var response = await _controller.PutPlanet(_planet);
             Assert.IsType<ObjectResult>(response);
 
-            var result = response as ObjectResult;
-
-            if (result == null)
+            if (!(response is ObjectResult result))
             {
                 throw new ArgumentException();
             }
