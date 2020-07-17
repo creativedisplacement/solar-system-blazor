@@ -14,7 +14,7 @@ namespace SolarSystem.Server.Tests
 {
     public class PlanetsControllerTests
     {
-        private PlanetsController _controller;
+        private PlanetsController? _controller;
         private readonly Mock<IMediator> _mediator;
         private readonly GetPlanetsModel _planets;
 

@@ -17,7 +17,7 @@ namespace SolarSystem.Server.Tests
 {
     public class PlanetControllerTests
     {
-        private PlanetController _controller;
+        private PlanetController? _controller;
         private readonly Mock<IPlanetCache> _cache;
         private readonly Mock<IMediator> _mediator;
         private readonly GetPlanetModel _planet;
@@ -78,7 +78,7 @@ namespace SolarSystem.Server.Tests
         {
             var planetId = Guid.NewGuid();
             
-            _cache.Setup(c => c.Get(planetId)).Returns((GetPlanetModel)null);
+            _cache.Setup(c => c.Get(planetId)).Returns((GetPlanetModel)null!);
             _mediator.Setup(m => m.Send(It.IsAny<GetPlanetQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(_planet);
             _controller = new PlanetController(_cache.Object, _mediator.Object);
 
@@ -99,7 +99,7 @@ namespace SolarSystem.Server.Tests
         [Fact]
         public async Task Get_Planet_With_Empty_Guid_Returns_Exception()
         {
-            _cache.Setup(c => c.Get(It.IsAny<Guid>())).Returns((GetPlanetModel)null);
+            _cache.Setup(c => c.Get(It.IsAny<Guid>())).Returns((GetPlanetModel)null!);
             _mediator.Setup(m => m.Send(It.IsAny<GetPlanetQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(_planet);
             _controller = new PlanetController(_cache.Object, _mediator.Object);
 

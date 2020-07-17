@@ -152,7 +152,7 @@ namespace SolarSystem.Application.Tests.Planets.Commands
         }
 
         [Fact]
-        public void Create_Book_With_Title_That_Does_Not_Already_Exists()
+        public void Create_Planet_With_Title_That_Does_Not_Already_Exists()
         {
             using (var context = GetContextWithData())
             {
