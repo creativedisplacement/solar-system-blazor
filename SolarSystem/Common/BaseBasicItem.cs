@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SolarSystem.Common
 {
@@ -7,17 +8,17 @@ namespace SolarSystem.Common
         [Required]
         [MinLength(3)]
         [StringLength(50)]
-        public string Name { get; set; }
-        
-        [Required]
-                [MinLength(10)]
-                [StringLength(150)]
-        public string ImageUrl { get; set; }
-        
+        public string Name { get; set; } = string.Empty;
+
         [Required]
         [MinLength(10)]
         [StringLength(150)]
-        public string Introduction { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
+
+        [Required]
+        [MinLength(10)]
+        [StringLength(150)]
+        public string Introduction { get; set; } = string.Empty;
         public int Ordinal { get; set; }
     }
 }

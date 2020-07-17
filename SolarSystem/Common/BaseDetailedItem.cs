@@ -7,7 +7,7 @@ namespace SolarSystem.Common
         [Required]
         [MinLength(30)]
         [StringLength(3000)]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
         public double Density { get; set; }
         public double Tilt { get; set; }
         public double RotationPeriod { get; set; }
@@ -19,10 +19,10 @@ namespace SolarSystem.Common
         public double Velocity { get; set; }
         public double Mass { get; set; }
         public double Inclination { get; set; }
-        
+
         [Required]
         [MinLength(5)]
         [StringLength(20)]
-        public string Type { get; set; }
+        public string Type { get; set; } = string.Empty;
     }
 }
