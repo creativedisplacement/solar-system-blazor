@@ -57,7 +57,7 @@ namespace SolarSystem.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostPlanet(GetPlanetModel planet)
+        public async Task<IActionResult> PostPlanet(GetPlanetModel? planet)
         {
             if (planet == null)
             {
@@ -97,7 +97,7 @@ namespace SolarSystem.Server.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutPlanet(GetPlanetModel planet)
+        public async Task<IActionResult> PutPlanet(GetPlanetModel? planet)
         {
             if (planet == null)
             {
