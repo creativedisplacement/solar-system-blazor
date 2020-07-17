@@ -7,13 +7,13 @@ namespace SolarSystem.Application.Exceptions
 {
     public class ValidationException : Exception
     {
-        public ValidationException()
+        private ValidationException()
             : base("One or more validation failures have occurred.")
         {
             Failures = new Dictionary<string, string[]>();
         }
 
-        public ValidationException(List<ValidationFailure> failures)
+        public ValidationException(IReadOnlyCollection<ValidationFailure> failures)
             : this()
         {
             var propertyNames = failures
@@ -31,6 +31,6 @@ namespace SolarSystem.Application.Exceptions
             }
         }
 
-        public IDictionary<string, string[]> Failures { get; }
+        private IDictionary<string, string[]> Failures { get; }
     }
 }

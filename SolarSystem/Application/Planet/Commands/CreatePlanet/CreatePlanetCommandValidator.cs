@@ -3,7 +3,7 @@ using SolarSystem.Persistence;
 
 namespace SolarSystem.Application.Planet.Commands.CreatePlanet
 {
-    public class CreatePlanetCommandValidator: BasePlanetCommandValidator<CreatePlanetCommand>
+    public class CreatePlanetCommandValidator: BaseCommandValidator<CreatePlanetCommand>
     {
         public CreatePlanetCommandValidator(SolarSystemDbContext context) : base (context)
         {

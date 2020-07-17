@@ -3,7 +3,7 @@ using SolarSystem.Persistence;
 
 namespace SolarSystem.Application.Planet.Commands.UpdatePlanet
 {
-    public class UpdatePlanetCommandValidator  : BasePlanetCommandValidator<UpdatePlanetCommand>
+    public class UpdatePlanetCommandValidator  : BaseCommandValidator<UpdatePlanetCommand>
     {
         public UpdatePlanetCommandValidator(SolarSystemDbContext context) : base (context)
         {

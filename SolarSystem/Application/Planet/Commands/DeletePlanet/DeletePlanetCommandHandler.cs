@@ -21,7 +21,7 @@ namespace SolarSystem.Application.Planet.Commands.DeletePlanet
 
             if (planet == null)
             {
-                throw new NotFoundException(nameof(Planet), request.Id);
+                throw new DeleteFailureException(nameof(Planet), request.Id, "Unable to find planet to delete.");
             }
 
             planet.DeletePlanet();

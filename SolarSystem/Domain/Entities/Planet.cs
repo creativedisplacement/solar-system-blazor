@@ -6,12 +6,7 @@ namespace SolarSystem.Domain.Entities
 {
     public class Planet : BaseEntity, IAggregateRoot
     {
-        public Planet()
-        {
-            
-        }
-        
-        public Planet(Guid id, string name, string introduction, string description, double density, 
+        public Planet(Guid id, string name, string introduction, string description, double density,
             double tilt, string imageUrl, double rotationPeriod, double period, int radius, int moons,
             double au, double eccentricity, double velocity, double mass, double inclination, string type, int ordinal)
         {
@@ -36,7 +31,7 @@ namespace SolarSystem.Domain.Entities
             Status = Status.Added;
         }
 
-        public Planet(string name, string introduction, string description, double density, 
+        public Planet(string name, string introduction, string description, double density,
             double tilt, string imageUrl, double rotationPeriod, double period, int radius, int moons,
             double au, double eccentricity, double velocity, double mass, double inclination, string type, int ordinal)
         {
@@ -59,23 +54,6 @@ namespace SolarSystem.Domain.Entities
             Ordinal = ordinal;
             Status = Status.Added;
         }
-        public string Name { get; private set; }
-        public string Introduction { get; private set; }
-        public string Description { get; private set; }
-        public double Density { get; private set; }
-        public double Tilt { get; private set; }
-        public string ImageUrl { get; private set; }
-        public double RotationPeriod { get; private set; }
-        public double Period { get; private set; }
-        public int Radius { get; private set; }
-        public int Moons { get; private set; }
-        public double Au { get; private set; }
-        public double Eccentricity { get; private set; }
-        public double Velocity { get; private set; }
-        public double Mass { get; private set; }
-        public double Inclination { get; private set; }
-        public string Type { get; private set; }
-        public int Ordinal { get; private set; }
 
         public void UpdatePlanet(string name, string introduction, string description, double density,
             double tilt, string imageUrl, double rotationPeriod, double period, int radius, int moons,
@@ -106,5 +84,23 @@ namespace SolarSystem.Domain.Entities
         {
             Status = Status.Deleted;
         }
+
+        public string Name { get; private set; }
+        public string Introduction { get; private set; }
+        public string Description { get; private set; }
+        public double Density { get; private set; }
+        public double Tilt { get; private set; }
+        public string ImageUrl { get; private set; }
+        public double RotationPeriod { get; private set; }
+        public double Period { get; private set; }
+        public int Radius { get; private set; }
+        public int Moons { get; private set; }
+        public double Au { get; private set; }
+        public double Eccentricity { get; private set; }
+        public double Velocity { get; private set; }
+        public double Mass { get; private set; }
+        public double Inclination { get; private set; }
+        public string Type { get; private set; }
+        public int Ordinal { get; private set; }
     }
 }
