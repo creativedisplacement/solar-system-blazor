@@ -141,13 +141,19 @@ namespace SolarSystem.Application.Tests.Planets.Commands
             using (var context = GetContextWithData())
             {
                 var validator = new CreatePlanetCommandValidator(context);
+                var name = context.Planets.FirstOrDefault()?.Name;
+
+                if (name == null)
+                {
+                    return;
+                }
+                
                 var result = validator.TestValidate(new CreatePlanetCommand
                 {
                     Id = new Guid(),
-                    Name = context.Planets.FirstOrDefault()?.Name
+                    Name = name
                 });
                 result.ShouldHaveValidationErrorFor(x => x);
-                
             }
         }
 

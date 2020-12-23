@@ -19,7 +19,7 @@ namespace SolarSystem.Server
                 try
                 {
                     var context = scope.ServiceProvider.GetService<SolarSystemDbContext>();
-                    context.Database.Migrate();
+                    context?.Database.Migrate();
 
                     SolarSystemInitialiser.Initialise(context);
                 }
