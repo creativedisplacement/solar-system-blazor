@@ -8,7 +8,7 @@
 <Form ButtonText="Create planet" Planet="@_planet" OnValidSubmit="@CreatePlanet"></Form>
 
 @code {
-    readonly GetPlanetModel _planet = new GetPlanetModel();
+    readonly GetPlanetModel _planet = new();
     async Task CreatePlanet()
     {
         await Http.PostAsJsonAsync("api/v1/planet", _planet);

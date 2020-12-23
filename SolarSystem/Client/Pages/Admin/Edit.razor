@@ -1,4 +1,4 @@
-﻿@page "/Admin/Edit/{planetName}"
+﻿@page "/Admin/Edit/{planetName}/{planetId}"
 @using SolarSystem.Common.Models.Planet
 @inject HttpClient Http
 @inject NavigationManager UriHelper
@@ -10,10 +10,16 @@
 @code {
     [Parameter]
     public string PlanetName { get; set; }
-    GetPlanetModel _planet = new GetPlanetModel();
+    
+    [Parameter]
+    public string PlanetId { get; set; }
+    
+    GetPlanetModel _planet = new();
+
     protected override async Task OnParametersSetAsync()
     {
-        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{PlanetName}");
+        var planetId = new Guid(PlanetId);
+        _planet = await Http.GetFromJsonAsync<GetPlanetModel>($"api/v1/planet/{planetId}");
     }
 
     async Task EditPlanet()

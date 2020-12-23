@@ -32,8 +32,8 @@ else
                 <td>@planet.Name</td>
                 <td>@planet.Introduction</td>
                 <td>
-                    <a class="btn btn-success" href="Admin/Edit/@planet.Name">Edit</a>
-                    <button class="btn btn-danger" @onclick="@(() => Delete(@planet.Id))">Delete</button>
+                    <a class="btn btn-success" href="Admin/Edit/@planet.Name/@planet.Id">Edit</a>
+                    <button class="btn btn-danger" @onclick="@(() => Delete(planet.Id))">Delete</button>
                 </td>
             </tr>
         }
